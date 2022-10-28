@@ -1,0 +1,12 @@
+- 파일 혹은 디렉토리 우클릭 - 속성 - 보안(탭) - 고급
+- 상속 사용 안함 - 이 개체에서 상속된 사용 권한을 모두 제거합니다.
+- 추가 - 보안 주체 선택 - 선택할 개체 입력에 입력(마소 계정 or 윈도우 아이디)
+
+
+++ ssh_key 없이 접속하는 방법
+- cd /etc/ssh
+- sudo cp sshd_config sshd_config.bak
+- sudo nano sshd_config
+- PasswordAuthentication no -> yes
+- sudo service sshd reload
+- ssh ubuntu@공공 IP로 확인

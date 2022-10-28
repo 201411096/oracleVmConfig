@@ -1,0 +1,16 @@
+version: "3" # 파일 규격 버전
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
+  mariadb: # 서비스 명
+    image: mariadb:10.9 # 사용할 이미지
+    container_name: mariadb # 컨테이너 이름 설정
+    ports:
+      - "3306:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    restart: always
+    environment: # -e 옵션
+      MYSQL_ROOT_PASSWORD: "myrootpassword"  # MYSQL 패스워드 설정 옵션
+      TZ: "Asia/Seoul"
+    command: # 명령어 실행
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ~/data/dbData/mariadb:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정) / 서버 쪽에 ~/data/dbData/mariadb 폴더들을 생성해두기

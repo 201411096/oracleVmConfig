@@ -1,0 +1,28 @@
+1. 구획 생성(2개)
+2. 가상 클라우드 네트워크 생성(2개)
+    - 방화벽 설정(80, 443)
+3. 공용 ip 생성(네트워킹 → ip 관리)
+    - 구획별로 할당(예약된 공용 IP 주소)
+4. 인스턴스 설정
+- 기본 패키지 업데이트
+    - sudo apt update && sudo apt -y upgrade & sudo apt install -y nano
+- 스왑 공간 생성하기
+    - sudo fallocate -l 2G /swapfile
+    - sudo chmod 600 /swapfile
+    - sudo mkswap /swapfile
+    - sudo swapon /swapfile
+    - sudo swapon --show
+        - 스왑공간 생성 확인
+    - free -h
+        - 메모리 상태 및 스왑공간 확인
+    - sudo vi /etc/fstab
+        - /swapfile swap swap defaults 0 0
+- 스왑 공간 삭제하기
+    - sudo swapoff -v /swapfile
+    - sudo rm /swapfile
+    - sudo vi /etc/fstab
+        - 위에서 추가한 한 줄 삭제하기
+- 날짜 설정하기
+    - sudo timedatectl set-timezone Asia/Seoul
+    - timedatectl
+        - time zone에 Asia/Seoul (KST, +0900) 뜨는지 확인

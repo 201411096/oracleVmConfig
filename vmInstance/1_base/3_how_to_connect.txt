@@ -1,0 +1,3 @@
+ssh -i "key-path" ubuntu@~ip
+
+scp -i "key-path" -r src_path dest_path(accountId@IP:dest_path_in_server)
