@@ -1,0 +1,35 @@
+1. 데이터베이스 생성
+- 자율운영 데이터베이스 선택 → 생성
+- 트랜잭션 처리
+- 공유 인프라
+- 항상 무료 구성 옵션만 표시
+- 모든 곳에서 보안 액세스
+- 라이센스 포함됨
+2. 전자 지갑 다운로드
+- 압축해제
+- 전자 지갑 안의 tnsnames.ora 파일로 db_home_medium 확인 가능
+3. 접속 방법
+- dbeaver
+    - ojdbc 다운로드
+        - 19.3 JDBC - ojdbc10-full.tar.gz
+        - [https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)
+        - 압축 해제
+    - 접속 정보 예시
+        - DB_URL="jdbc:oracle:thin:@dbname_medium?TNS_ADMIN=/users/test/wallet_dbname/”
+            - dbeaver 접속시 → basic/tns/custom중 custom 선택 후 DB URL 입력
+            - dbname은 wallet의 tnsora 파일에 적혀있음
+            - TNS_ADMIN은 wallet 폴더 경로
+                - 폴더 위치에 따라서 접속 안될수도 있음
+                - C드라이브 바로 아래에 두니까 정상 접속
+        - 초기 아이디/비밀번호
+            - admin
+            - wallet 설정시 비밀번호?..
+        - edit driver setting
+            - 포트 변경(tnsora에 적혀있는 포트)
+            - 기존 드라이버 삭제(라이브러리)
+            - ojdbc 디렉토리 선택 후 open
+        - wallet 사용하지 않는 방법
+            - [https://blogs.oracle.com/opal/post/easy-way-to-connect-python-applications-to-oracle-autonomous-databases](https://blogs.oracle.com/opal/post/easy-way-to-connect-python-applications-to-oracle-autonomous-databases)
+    - 계정 생성 - 권한 부여
+        - create user TESTACCOUNT identified by password123ABC
+        - GRANT CONNECT, RESOURCE TO TESTACCOUNT;
