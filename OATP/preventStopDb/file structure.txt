@@ -1,9 +1,0 @@
---oracle
-	--project_insertDummyData
-		--insertDummyData.Dockerfile
-		--insertDummyData_linux.py
-		--pip-requirements.txt
-		--instantclient // 리눅스 버전확인
-			--instantclient_21_8
-				--network
-					--admin // wallet 파일들을 복붙해둔 위치
